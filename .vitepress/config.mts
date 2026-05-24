@@ -12,6 +12,7 @@ const zhTutorial = [
   { text: '07 · 从 0 到 1 设计一个系统', link: '/tutorial/07-从0到1设计一个系统' },
   { text: '08 · 架构决策记录与演进', link: '/tutorial/08-架构决策记录与演进' },
   { text: '09 · 架构品味', link: '/tutorial/09-架构品味' },
+  { text: '附录 · 架构术语表', link: '/tutorial/术语表' },
 ]
 
 const zhCommon = [
