@@ -7,6 +7,8 @@
 
 **🌐 在线阅读(可交互教学站,支持中英文切换):** <http://192.3.16.77:8090/>
 
+**🧭 配套 skill:** [architecture-copilot](https://github.com/study8677/architecture-copilot) —— 把这套知识变成能在 Claude Code / Cursor / Codex 里**引导你一步步设计架构**的交互式 skill。
+
 ---
 
 ## 这个仓库为什么存在

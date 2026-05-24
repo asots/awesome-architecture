@@ -7,6 +7,8 @@
 
 **🌐 Read online (interactive site):** <http://192.3.16.77:8090/en/>
 
+**🧭 Companion skill:** [architecture-copilot](https://github.com/study8677/architecture-copilot) — turns this knowledge into an interactive skill that **guides you through architecture design** inside Claude Code / Cursor / Codex.
+
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 [![Focus: architecture, not syntax](https://img.shields.io/badge/focus-architecture%2C%20not%20syntax-blue.svg)](#why-this-repo-exists)
 [![Made with Markdown](https://img.shields.io/badge/made%20with-Markdown-1f425f.svg)](#)
