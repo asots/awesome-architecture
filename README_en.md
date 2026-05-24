@@ -98,7 +98,7 @@ Each template is an "architecture map". We **deliberately avoid discussing langu
 
 > 👉 **Want to add your own template?** Follow the unified format in [templates/_TEMPLATE.md](templates/_TEMPLATE.md).
 
-> 📝 **Note:** the full **tutorial (all 9 chapters) is now available in English**; the 21 **templates are still in Chinese** (translations welcome — see [Contributing](#contributing)).
+> 📝 **Now fully bilingual** — all **9 tutorial chapters and 21 templates** are available in English. Use the language switch (top-right on the site), or browse `en/` in the repo.
 
 ---
 
