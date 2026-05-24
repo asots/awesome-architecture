@@ -114,6 +114,7 @@ export default defineConfig({
                 { text: 'Overview', link: '/en/tutorial/README' },
                 { text: '01 · Why architecture comes first', link: '/en/tutorial/01-为什么先有架构思维' },
                 { text: '02–08 · translation in progress…', link: '/en/tutorial/README' },
+                { text: '09 · Architectural taste', link: '/en/tutorial/09-架构品味' },
               ],
             },
           ],
