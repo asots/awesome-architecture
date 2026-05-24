@@ -5,7 +5,7 @@
 
 **English** · [简体中文](./README.md)
 
-**🌐 Read online (interactive site):** <http://192.3.16.77:8090/en/>
+**🌐 Read online (interactive · bilingual, HTTPS):** <https://study8677.github.io/awesome-architecture/en/>
 
 **🧭 Companion skill:** [architecture-copilot](https://github.com/study8677/architecture-copilot) — turns this knowledge into an interactive skill that **guides you through architecture design** inside Claude Code / Cursor / Codex.
 
