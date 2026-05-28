@@ -33,6 +33,12 @@ features:
 
 > 📝 **Bilingual** — all **19 published tutorial chapters and 25 templates** are available in English; **the rest of the practice track (20–22) and the AI-collaborative design track (23–26) are planned.** Use the language switch (top-right) or browse `en/` in the repo. [Contributions welcome](https://github.com/study8677/awesome-architecture).
 
+## 🗺️ Browse all 25 architecture maps
+
+Click a category to filter, then click any card to jump to that template's architecture map.
+
+<ArchExplorer />
+
 ## ⚖️ Architecture is a series of forks in the road
 
 The most valuable section of every template is "Key Decisions & Trade-offs." Try this interactive starter:

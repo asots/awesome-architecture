@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { withBase } from 'vitepress'
+import { useData, withBase } from 'vitepress'
 
-interface Item { name: string; icon: string; cat: 'common' | 'ai' | 'agent'; desc: string; link: string }
+type Category = 'common' | 'ai' | 'agent'
+type TabKey = 'all' | Category
 
-const items: Item[] = [
+interface Item { name: string; icon: string; cat: Category; desc: string; link: string }
+interface Tab { k: TabKey; t: string }
+
+const itemsZh: Item[] = [
   { name: 'AI 对话产品', icon: '🤖', cat: 'common', desc: 'LLM 推理 · 流式 · 上下文 · 成本', link: '/templates/ai-chat-product/README' },
   { name: '浏览器插件', icon: '🧩', cat: 'common', desc: '脚本分离 · 注入 · 隐私边界', link: '/templates/browser-extension/README' },
   { name: '普通网站', icon: '🌐', cat: 'common', desc: '三层 · 缓存 · 读写分离', link: '/templates/standard-web-app/README' },
@@ -32,14 +36,56 @@ const items: Item[] = [
   { name: 'Hermes(爱马仕)', icon: '🧠', cat: 'agent', desc: 'FTS5 持久记忆 · 自动沉淀技能 · 常驻', link: '/templates/hermes/README' },
 ]
 
-const filter = ref<'all' | 'common' | 'ai' | 'agent'>('all')
-const filtered = computed(() => (filter.value === 'all' ? items : items.filter((i) => i.cat === filter.value)))
-const tabs = [
+const itemsEn: Item[] = [
+  { name: 'AI Chat Product', icon: '🤖', cat: 'common', desc: 'LLM inference · streaming · context · cost', link: '/en/templates/ai-chat-product/README' },
+  { name: 'Browser Extension', icon: '🧩', cat: 'common', desc: 'Content/background split · injection · privacy', link: '/en/templates/browser-extension/README' },
+  { name: 'Standard Web App', icon: '🌐', cat: 'common', desc: 'Three-tier · caching · read/write split', link: '/en/templates/standard-web-app/README' },
+  { name: 'Mobile App', icon: '📱', cat: 'common', desc: 'Offline-first · sync · push', link: '/en/templates/mobile-app/README' },
+  { name: 'E-commerce Platform', icon: '🛒', cat: 'common', desc: 'Inventory · orders · overselling · spikes', link: '/en/templates/ecommerce-platform/README' },
+  { name: 'Social Feed', icon: '📰', cat: 'common', desc: 'Feed push/pull · follow graph · fan-out', link: '/en/templates/social-feed/README' },
+  { name: 'Video Streaming', icon: '🎬', cat: 'common', desc: 'Transcoding · CDN · adaptive bitrate', link: '/en/templates/video-streaming/README' },
+  { name: 'Realtime Chat', icon: '💬', cat: 'common', desc: 'Long-lived conns · ordering · offline delivery', link: '/en/templates/realtime-chat/README' },
+  { name: 'URL Shortener', icon: '🔗', cat: 'common', desc: 'Read-heavy · redirect · unique ID', link: '/en/templates/url-shortener/README' },
+  { name: 'Payment System', icon: '💳', cat: 'common', desc: 'Idempotency · double-entry · reconciliation', link: '/en/templates/payment-system/README' },
+  { name: 'Search Engine', icon: '🔍', cat: 'common', desc: 'Inverted index · recall + rerank', link: '/en/templates/search-engine/README' },
+  { name: 'Ride-Hailing', icon: '🚗', cat: 'common', desc: 'Geo index · realtime matching', link: '/en/templates/ride-hailing/README' },
+  { name: 'Collaborative Doc', icon: '📝', cat: 'common', desc: 'OT/CRDT · single-writer serialization', link: '/en/templates/collaborative-doc/README' },
+  { name: 'Cloud Storage', icon: '☁️', cat: 'common', desc: 'Chunking · dedup · incremental sync', link: '/en/templates/cloud-storage/README' },
+  { name: 'Notification System', icon: '🔔', cat: 'common', desc: 'Multi-channel fan-out · dedup/throttling', link: '/en/templates/notification-system/README' },
+  { name: 'Online Ticketing', icon: '🎫', cat: 'common', desc: 'Waiting room · atomic decrement · seat lock', link: '/en/templates/online-ticketing/README' },
+  { name: 'AI Gateway / Relay', icon: '🚪', cat: 'ai', desc: 'Unified API · billing · load balancing', link: '/en/templates/ai-gateway/README' },
+  { name: 'RAG Knowledge Base', icon: '📚', cat: 'ai', desc: 'Chunking · vector retrieval · rerank', link: '/en/templates/rag-knowledge-base/README' },
+  { name: 'AI Agent / Workflow', icon: '🤹', cat: 'ai', desc: 'Action loop · tools · memory', link: '/en/templates/ai-agent-platform/README' },
+  { name: 'Inference Serving', icon: '⚡', cat: 'ai', desc: 'Continuous batching · paged KV', link: '/en/templates/inference-serving/README' },
+  { name: 'Vector Database', icon: '🧭', cat: 'ai', desc: 'ANN · HNSW · similarity search', link: '/en/templates/vector-database/README' },
+  { name: 'Claude Code', icon: '🖥️', cat: 'agent', desc: 'Local-first coding · subagents/hooks/MCP · two-tier perms', link: '/en/templates/claude-code/README' },
+  { name: 'OpenAI Codex', icon: '🛰️', cat: 'agent', desc: 'Local CLI + cloud sandbox · async PRs · two-axis safety', link: '/en/templates/codex/README' },
+  { name: 'OpenClaw (the lobster)', icon: '🦞', cat: 'agent', desc: 'Self-hosted gateway · chat as UI · always-on', link: '/en/templates/openclaw/README' },
+  { name: 'Hermes', icon: '🧠', cat: 'agent', desc: 'FTS5 memory · auto-distilled skills · always-on', link: '/en/templates/hermes/README' },
+]
+
+const tabsZh: Tab[] = [
   { k: 'all', t: '全部 25' },
   { k: 'common', t: '🗺️ 经典 / 通用' },
   { k: 'ai', t: '🤖 AI 原生' },
   { k: 'agent', t: '🦾 编码 / 自治 Agent' },
-] as const
+]
+
+const tabsEn: Tab[] = [
+  { k: 'all', t: 'All 25' },
+  { k: 'common', t: '🗺️ Classic / General' },
+  { k: 'ai', t: '🤖 AI-native' },
+  { k: 'agent', t: '🦾 Coding / Autonomous Agents' },
+]
+
+const { lang } = useData()
+const isEn = computed(() => lang.value === 'en')
+const items = computed(() => (isEn.value ? itemsEn : itemsZh))
+const tabs = computed(() => (isEn.value ? tabsEn : tabsZh))
+const generalLabel = computed(() => (isEn.value ? 'General' : '通用'))
+
+const filter = ref<TabKey>('all')
+const filtered = computed(() => (filter.value === 'all' ? items.value : items.value.filter((i) => i.cat === filter.value)))
 </script>
 
 <template>
@@ -57,7 +103,7 @@ const tabs = [
         <div class="ax-ic">{{ it.icon }}</div>
         <div class="ax-name">{{ it.name }}</div>
         <div class="ax-desc">{{ it.desc }}</div>
-        <span class="ax-tag" :class="it.cat">{{ it.cat === 'ai' ? 'AI' : it.cat === 'agent' ? 'Agent' : '通用' }}</span>
+        <span class="ax-tag" :class="it.cat">{{ it.cat === 'ai' ? 'AI' : it.cat === 'agent' ? 'Agent' : generalLabel }}</span>
       </a>
     </div>
   </div>
