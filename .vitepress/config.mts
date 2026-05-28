@@ -27,6 +27,11 @@ const zhTutorialAdvanced = [
   { text: '17 · 大模型时代的架构判断', link: '/tutorial/17-大模型时代的架构判断' },
 ]
 
+const zhTutorialPractice = [
+  { text: '18 · 读地图:用框架拆解陌生系统', link: '/tutorial/18-读地图用框架拆解陌生系统' },
+  { text: '19 · 完整设计演练:中等复杂度系统', link: '/tutorial/19-完整设计演练中等复杂度系统' },
+]
+
 const zhCommon = [
   { text: 'AI 对话产品', link: '/templates/ai-chat-product/README' },
   { text: '浏览器插件', link: '/templates/browser-extension/README' },
@@ -63,7 +68,7 @@ const zhAgent = [
 
 export default defineConfig({
   title: 'Awesome Architecture',
-  description: '专注「架构思维」的中文知识库:17 章教程(入门 + 进阶)+ 25 张真实系统架构地图。',
+  description: '专注「架构思维」的中文知识库:19 章教程(入门 + 进阶 + 实战连载中)+ 25 张真实系统架构地图。',
   lang: 'zh-Hans',
   base: process.env.GITHUB_PAGES ? '/awesome-architecture/' : '/',
   cleanUrls: true,
@@ -73,7 +78,7 @@ export default defineConfig({
   head: [
     ['meta', { name: 'theme-color', content: '#3c8772' }],
     ['meta', { property: 'og:title', content: 'Awesome Architecture · 架构图谱' }],
-    ['meta', { property: 'og:description', content: '像架构师一样思考:17 章教程(入门 + 进阶)+ 25 张真实系统架构地图。' }],
+    ['meta', { property: 'og:description', content: '像架构师一样思考:19 章教程(入门 + 进阶 + 实战连载中)+ 25 张真实系统架构地图。' }],
     // Hypothesis 划词标注:选中正文文字即可高亮 + 评论,标注持久化、所有访客可见
     ['script', { src: 'https://hypothes.is/embed.js', async: '' }],
   ],
@@ -99,6 +104,7 @@ export default defineConfig({
           '/tutorial/': [
             { text: '📚 入门篇', items: zhTutorial },
             { text: '🚀 进阶篇', items: zhTutorialAdvanced },
+            { text: '🎯 实战篇', items: zhTutorialPractice },
           ],
           '/templates/': [
             { text: '🗺️ 经典 / 通用系统', items: zhCommon },
@@ -108,6 +114,7 @@ export default defineConfig({
           '/': [
             { text: '📚 教程 · 入门篇', collapsed: false, items: zhTutorial },
             { text: '🚀 教程 · 进阶篇', collapsed: false, items: zhTutorialAdvanced },
+            { text: '🎯 教程 · 实战篇', collapsed: false, items: zhTutorialPractice },
             { text: '🗺️ 经典 / 通用系统', collapsed: true, items: zhCommon },
             { text: '🤖 AI 原生系统', collapsed: true, items: zhAI },
             { text: '🦾 AI 编码 / 自治 Agent', collapsed: true, items: zhAgent },
@@ -164,6 +171,14 @@ export default defineConfig({
                 { text: '15 · Organization as architecture', link: '/en/tutorial/15-组织即架构' },
                 { text: '16 · Security & multi-tenancy', link: '/en/tutorial/16-安全与多租户架构' },
                 { text: '17 · Architecting in the age of LLMs', link: '/en/tutorial/17-大模型时代的架构判断' },
+              ],
+            },
+            {
+              text: '🎯 Tutorial · Practice',
+              collapsed: true,
+              items: [
+                { text: '18 · Reading the map: deconstruct unfamiliar systems', link: '/en/tutorial/18-读地图用框架拆解陌生系统' },
+                { text: '19 · Full design walkthrough: medium complexity', link: '/en/tutorial/19-完整设计演练中等复杂度系统' },
               ],
             },
             {

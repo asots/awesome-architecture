@@ -68,14 +68,14 @@ The foundations teach you to design a small-to-medium system from scratch; **the
 
 ---
 
-## 🎯 Practice track (18–22, planned) — put judgment on real cases
+## 🎯 Practice track (18–22, in progress) — put judgment on real cases
 
 Foundations + advanced teach *how to judge*; **the practice track teaches how to drill** — threading [07](./07-从0到1设计一个系统), [08](./08-架构决策记录与演进), [10–16](./10-分布式系统的硬道理), and the `templates/` maps into one narrative. **Read this track before the AI-collaborative design track.**
 
 | Ch. | In one line |
 |---|---|
-| 18 · Reading the map: deconstruct unfamiliar systems | Reverse-read a template: constraints, trade-offs, where it dies. |
-| 19 · Full design walkthrough: medium complexity | Run the ch.07 eight-step flow again — on money/inventory-grade constraints. |
+| [18 · Reading the map: deconstruct unfamiliar systems](./18-读地图用框架拆解陌生系统) | Four-step reverse-reading; practice on RAG / AI chat product maps. |
+| [19 · Full design walkthrough: medium complexity](./19-完整设计演练中等复杂度系统) | Run the ch.07 eight-step flow again — design an AI customer-service assistant that looks up orders and issues refunds, from scratch. |
 | 20 · Evolution playbook: MVP → scale | Same system as ch.19: read signals, write ADRs, decide when to upgrade. |
 | 21 · Splitting & migration in practice | Land ch.14: strangler, parallel run, zero-downtime migration, modular monolith. |
 | 22 · AI-native system design | Full design drill for ch.17's constraints (RAG / Agent) — bridge to the next track. |
