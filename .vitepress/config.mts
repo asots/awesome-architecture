@@ -79,8 +79,8 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#3c8772' }],
     ['meta', { property: 'og:title', content: 'Awesome Architecture · 架构图谱' }],
     ['meta', { property: 'og:description', content: '像架构师一样思考:19 章教程(入门 + 进阶 + 实战连载中)+ 25 张真实系统架构地图。' }],
-    // Hypothesis 划词标注:选中正文文字即可高亮 + 评论,标注持久化、所有访客可见
-    ['script', { src: 'https://hypothes.is/embed.js', async: '' }],
+    // 注:Hypothesis 划词标注不再全站默认加载;改由评论区顶部的 toggle 按需注入。
+    // 见 .vitepress/theme/components/Comments.vue 的 loadHypothesis()。
   ],
 
   themeConfig: {
